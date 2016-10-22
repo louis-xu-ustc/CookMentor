@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ import static android.R.layout.simple_list_item_1;
 public class LoadRecipeActivity extends AppCompatActivity {
 
     public final String TAG = "COOKMENTOR";
+    public TextView currentSelection = null;
 
     private ListView mListView;
     private ArrayList mListItems;
@@ -31,6 +33,8 @@ public class LoadRecipeActivity extends AppCompatActivity {
 
         mListItems = new ArrayList();
         mListView = (ListView)findViewById(R.id.lv_recipe);
+
+        currentSelection = (TextView) findViewById(R.id.currentSelection);
 
         // Add dummy data
         mListItems.add("Pasta");
@@ -54,6 +58,8 @@ public class LoadRecipeActivity extends AppCompatActivity {
                 // Show Alert
                 Log.i(TAG, "Select: " + itemValue);
                 selected = itemValue;
+
+                currentSelection.setText(itemValue);
             }
 
         });
@@ -72,9 +78,11 @@ public class LoadRecipeActivity extends AppCompatActivity {
     }
 
     public void switchToRegisterActivity(View view) {
-//        Intent intent = new Intent(this, InstructionShowActivity.class);
-//        intent.putExtra("SELECTED", selected);
-//        startActivity(intent);
-//        Log.d(TAG, "Select: " + selected);
+        Intent intent = new Intent(this, IngredientActivity.class);
+        if (currentSelection.getText().equals(""))
+            return;
+        intent.putExtra("recipeName", currentSelection.getText());
+        startActivity(intent);
+        Log.d(TAG, "recipeName: " + currentSelection.getText());
     }
 }

@@ -11,6 +11,30 @@
         android:textSize="36sp"
         android:textAlignment="center" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recipeName"
+        android:textSize="36sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/currentSelection"
+        android:textSize="36sp"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="Proceed"
+        android:layout_height="wrap_content"
+        android:id="@+id/ingredient_preceed"
+        style="@style/Widget.AppCompat.Button"
+        android:textSize="30sp"
+        android:onClick="switchToFindInstrumentsActivity"
+        android:layout_width="match_parent"
+        android:textAlignment="center" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

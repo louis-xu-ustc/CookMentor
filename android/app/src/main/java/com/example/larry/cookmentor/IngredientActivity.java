@@ -1,5 +1,6 @@
 package com.example.larry.cookmentor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.util.Log;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,6 +26,7 @@ import java.util.StringTokenizer;
 
 public class IngredientActivity extends AppCompatActivity {
     private HashMap<String, String> defaultMenu = new HashMap<String, String>();
+    public TextView currentSelection = null;
 
     private void initDefaultMenu(){
         defaultMenu.put("sugar", "12");
@@ -37,6 +42,14 @@ public class IngredientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ingredient);
 
         initDefaultMenu();
+
+        Bundle bundle = getIntent().getExtras();
+
+        TextView recipeName = (TextView) findViewById(R.id.recipeName);
+
+        currentSelection = (TextView) findViewById(R.id.currentSelection);
+
+        recipeName.setText("Current recipe: " + bundle.getString("recipeName"));
 
         final ListView ingredient_menu = (ListView) findViewById(R.id.ingredient_menu);
 
@@ -61,11 +74,18 @@ public class IngredientActivity extends AppCompatActivity {
                 String ingredient_name = (String) ingredient_menu.getItemAtPosition(position);
 
                 Log.d("tag", "Position " + position + " Ingredient name: " + ingredient_name );
+                currentSelection.setText(ingredient_name);
             }
         });
+    }
 
-
-
+    public void switchToFindInstrumentsActivity(View view) {
+        Intent intent = new Intent(this, FindInstrumentActivity.class);
+        if (currentSelection.getText().equals(""))
+            return;
+        intent.putExtra("ingredient", currentSelection.getText());
+        startActivity(intent);
+//        Log.d(TAG, "ingredient: " + currentSelection.getText());
     }
 
 }

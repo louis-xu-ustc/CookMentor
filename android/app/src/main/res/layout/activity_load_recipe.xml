@@ -40,8 +40,8 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/btn_confirm_recipe"
-            android:layout_below="@+id/lv_recipe"
-            android:onClick="addItems"/>
+            android:onClick="switchToRegisterActivity"
+            android:layout_below="@+id/lv_recipe"/>
 
     </LinearLayout>
 

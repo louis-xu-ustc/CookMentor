@@ -10,4 +10,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.larry.cookmentor.InstructionShowActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_instruction_show_activity"
+        android:text="@string/label_current_instruction"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="160dp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_instructions"
+        android:layout_below="@+id/title_instruction_show_activity">
+    </ListView>
+
 </RelativeLayout>

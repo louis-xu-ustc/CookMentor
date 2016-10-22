@@ -1,5 +1,6 @@
 package com.example.larry.cookmentor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,7 @@ public class LoadRecipeActivity extends AppCompatActivity {
     public final String TAG = "COOKMENTOR";
 
     private ListView mListView;
-    private ArrayList mListItems = new ArrayList();
+    private ArrayList mListItems;
     private ArrayAdapter<String> mListViewAdapter;
     private String selected = null;
     private int clickCounter = 0;
@@ -28,6 +29,7 @@ public class LoadRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_recipe);
 
+        mListItems = new ArrayList();
         mListView = (ListView)findViewById(R.id.lv_recipe);
 
         // Add dummy data
@@ -51,6 +53,7 @@ public class LoadRecipeActivity extends AppCompatActivity {
 
                 // Show Alert
                 Log.i(TAG, "Select: " + itemValue);
+                selected = itemValue;
             }
 
         });
@@ -66,5 +69,12 @@ public class LoadRecipeActivity extends AppCompatActivity {
             params.addRule(RelativeLayout.BELOW, R.id.btn_control_group);
             mListView.setLayoutParams(params);
         }
+    }
+
+    public void switchToRegisterActivity(View view) {
+//        Intent intent = new Intent(this, InstructionShowActivity.class);
+//        intent.putExtra("SELECTED", selected);
+//        startActivity(intent);
+//        Log.d(TAG, "Select: " + selected);
     }
 }

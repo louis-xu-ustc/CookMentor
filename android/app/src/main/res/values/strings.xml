@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CookMentor</string>
+    <string name="label_load_recipe">Choose a recipe</string>
 </resources>

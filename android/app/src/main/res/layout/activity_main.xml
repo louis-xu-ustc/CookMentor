@@ -11,7 +11,17 @@
     tools:context="com.example.larry.cookmentor.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:layout_marginTop="80sp"/>
+
+    <!--<ListView-->
+        <!--android:id="@+id/listView1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:listSelector="@null" />-->
+
 </RelativeLayout>

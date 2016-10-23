@@ -12,6 +12,7 @@ import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.core.proxy.Config;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.simulator.pane.BeaconPane;
+import com.bezirk.simulator.pane.CookItemPane;
 import com.bezirk.simulator.pane.DevicePane;
 import com.bezirk.simulator.pane.EnvironmentalSensorPane;
 import com.bezirk.simulator.pane.PhilipsHueColorPane;
@@ -55,7 +56,7 @@ public class WorkbenchPane extends BorderPane {
 
     public WorkbenchPane() throws Exception {
 
-        String groupID = "Deadlock"; //Set a hard-to-guess groupID for your group
+        String groupID = "CookMentor"; //Set a hard-to-guess groupID for your group
 
 
         if (groupID == "") {
@@ -154,10 +155,11 @@ public class WorkbenchPane extends BorderPane {
         devicePane.setVgap(20);
         devicePane.setPrefColumns(2);
 
-        devicePane.getChildren().add(createDeviceButton("Beacon", BeaconPane.class));
-        devicePane.getChildren().add(createDeviceButton("Environmental Sensor", EnvironmentalSensorPane.class));
-        devicePane.getChildren().add(createDeviceButton("Philips Hue Color", PhilipsHueColorPane.class));
-        devicePane.getChildren().add(createDeviceButton("Robot", RobotPane.class));
+//        devicePane.getChildren().add(createDeviceButton("Beacon", BeaconPane.class));
+//        devicePane.getChildren().add(createDeviceButton("Environmental Sensor", EnvironmentalSensorPane.class));
+//        devicePane.getChildren().add(createDeviceButton("Philips Hue Color", PhilipsHueColorPane.class));
+//        devicePane.getChildren().add(createDeviceButton("Robot", RobotPane.class));
+        devicePane.getChildren().add(createDeviceButton("Cook Item", CookItemPane.class));
 
         deviceSelectionStage.setTitle("Click a Device to Add to the Workbench");
         deviceSelectionStage.setScene(new Scene(devicePane));
